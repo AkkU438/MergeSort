@@ -27,7 +27,11 @@ public class Merge {
             String name1 = myName1.nextLine();
             
             int[] numbers = readFileToArray(name1);
+            long startTime = System.nanoTime();
             bubbleSort(numbers);
+            long endTime = System.nanoTime();
+            long duration = (endTime - startTime);
+            System.out.println("The sort took" + duration);
             System.out.println("Please write out the name of the file");
             Scanner myName2 = new Scanner(System.in);
             String name2 = myName2.nextLine();
@@ -42,7 +46,11 @@ public class Merge {
             String name3 = myName3.nextLine();
             
             int[] numbers2 = readFileToArray(name3);
+            long startTime2 = System.nanoTime();
             mergeSort(numbers2, 0, numbers2.length - 1);
+            long endTime2 = System.nanoTime();
+            long duration2 = (endTime2 - startTime2);
+            System.out.println("The sort took" + duration2);
             System.out.println("Please write out the name of the file");
             Scanner myName4 = new Scanner(System.in);
             String name4 = myName4.nextLine();
@@ -164,7 +172,7 @@ public static void bubbleSort(int[] array){
                 swapped = true;
             }
         }
-        // Optimization: Largest element is in place, so reduce the array size for next pass
+        
         n--;
     } while (swapped);
 
